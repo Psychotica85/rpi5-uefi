@@ -15,7 +15,7 @@ on:
 
 env:
   RPI_FIRMWARE_URL: https://github.com/raspberrypi/firmware/
-  DTB_VERSION: 1e403e23baab5673f0494a200f57cd01287d5b1a
+  DTB_VERSION: 39a2813a75827b3a4d104a97e8f872df5d4f7e54 #Firmwareversion from end of 01/2025
 
 jobs:
   build:
@@ -91,6 +91,7 @@ jobs:
       - name: Download Raspberry Pi support files
         run: |
           curl -O -L ${{ env.RPI_FIRMWARE_URL }}/raw/${{ env.DTB_VERSION }}/boot/bcm2712-rpi-5-b.dtb
+          curl -O -L ${{ env.RPI_FIRMWARE_URL }}/raw/${{ env.DTB_VERSION }}/boot/bcm2712d0-rpi-5-b.dtb
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
